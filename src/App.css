@@ -1,293 +1,520 @@
-/* This file styles the website components and layout */
 :root {
-  /* Change these colors to personalize the website's palette. */
-  --ink: #193c3c;
-  --muted: #5d7470;
-  --paper: #f4f0e8;
-  --line: #cbd5cb;
-  --accent: #b159d4;
-  --cream: #e7efe5;
-  --serif: Georgia, 'Times New Roman', serif;
-  --sans: 'Trebuchet MS', Arial, sans-serif;
+  --ink: #17243b;
+  --muted: #687386;
+  --paper: #ffffff;
+  --surface: #f5f7fa;
+  --line: #e2e7ee;
+  --accent: #183b68;
+  --accent-hover: #102c50;
+  --sans: 'Inter', 'Segoe UI', Arial, sans-serif;
 }
 
-/* Change the fonts or base text size here if you want a different feel. */
 body {
-  /* Removes the browser's default space around the page. */
   margin: 0;
   background: var(--paper);
   color: var(--ink);
   font-family: var(--sans);
   font-size: 16px;
-  line-height: 1.6;
+  line-height: 1.65;
 }
 
 a {
   color: inherit;
 }
 
-.site-shell {
-  /* Keeps the content from becoming too wide on large screens. */
-  max-width: 1180px;
-  margin: 0 auto;
-  /* Change this padding to move content farther from the screen edges. */
-  padding: 0 52px;
+a:focus-visible {
+  outline: 3px solid #91acd0;
+  outline-offset: 4px;
+  border-radius: 3px;
 }
 
-.footer-links a {
-  /* Removes the usual underline from the footer links (links at the very bottom of the screen). */
+.site-shell {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.site-header {
+  min-height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid var(--line);
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.2px;
   text-decoration: none;
 }
 
+.brand-mark {
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 11px;
+  background: var(--accent);
+  color: #fff;
+  font-size: 12px;
+  letter-spacing: 0.4px;
+}
+
+.main-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.main-nav a,
+.footer-links a {
+  text-decoration: none;
+  transition: color 160ms ease;
+}
+
+.main-nav a:hover,
 .footer-links a:hover {
-  /* This color appears when the mouse is over a footer link. */
   color: var(--accent);
 }
 
 .hero {
-  /* The hero has text on the left and the profile picture on the right. */
-  min-height: 590px;
+  min-height: 570px;
   display: grid;
-  grid-template-columns: 1fr 330px;
+  grid-template-columns: 1fr 310px;
   align-items: center;
-  gap: 80px;
+  gap: 90px;
+  padding: 56px 0 78px;
 }
 
 .hero-copy {
-  /* Prevents the introduction text from becoming too wide to read. */
-  max-width: 650px;
+  max-width: 640px;
 }
 
 .eyebrow,
 .section-label,
 .project-tag {
   color: var(--accent);
-  font-size: 12px;
+  font-size: 11px;
   font-weight: 700;
-  letter-spacing: 1.5px;
+  letter-spacing: 1.4px;
   text-transform: uppercase;
+}
+
+.eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.status-dot,
+.location-dot {
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  border-radius: 50%;
+  background: #7894b6;
 }
 
 h1,
 h2,
 h3 {
-  font-family: var(--serif);
-  font-weight: 400;
-  line-height: 1.05;
   margin: 0;
+  font-weight: 650;
+  letter-spacing: -0.045em;
+  line-height: 1.08;
 }
 
 h1 {
-  font-size: clamp(56px, 8vw, 102px);
-  letter-spacing: -3px;
-  margin: 18px 0 28px;
+  max-width: 700px;
+  margin: 18px 0 22px;
+  color: var(--ink);
+  font-size: clamp(58px, 8vw, 88px);
 }
 
 h2 {
-  font-size: clamp(38px, 5vw, 64px);
-  margin-bottom: 25px;
+  margin-bottom: 24px;
+  font-size: clamp(36px, 5vw, 52px);
 }
 
 .intro {
-  /* Change this size if you want the introduction to stand out more or less. */
   max-width: 480px;
+  margin: 0;
   color: var(--muted);
-  font-size: 21px;
+  font-size: 19px;
+  line-height: 1.75;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 32px;
+}
+
+.button {
+  display: inline-flex;
+  min-height: 46px;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 18px;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  font-size: 13px;
+  font-weight: 650;
+  text-decoration: none;
+  transition: background-color 160ms ease, border-color 160ms ease, color 160ms ease;
+}
+
+.button-primary {
+  background: var(--accent);
+  color: #fff;
+}
+
+.button-primary:hover {
+  background: var(--accent-hover);
+}
+
+.button-secondary {
+  border-color: var(--line);
+  background: #fff;
+  color: var(--ink);
+}
+
+.button-secondary:hover {
+  border-color: #b8c4d3;
+  background: var(--surface);
 }
 
 .profile {
-  /* Places the image and location underneath one another. */
   display: flex;
   flex-direction: column;
   align-items: center;
-  text-align: right;
+  text-align: center;
 }
 
 .profile-picture {
-  /* Change width and height together to resize the profile picture. */
-  width: 330px;
-  height: 330px;
-  /* cover fills the circle without stretching the image. */
+  width: 290px;
+  height: 290px;
+  border: 8px solid #fff;
+  border-radius: 32px;
+  background: var(--surface);
+  box-shadow: 0 18px 50px rgb(23 36 59 / 12%), 0 0 0 1px var(--line);
   object-fit: cover;
-  /* 50% makes the square image into a circle. */
-  border-radius: 50%;
 }
 
 .profile p {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 20px 0 0;
   color: var(--muted);
   font-size: 12px;
 }
 
 .section {
-  /* Each section has a small label on the left and content on the right. */
   display: grid;
-  grid-template-columns: 190px 1fr;
-  gap: 60px;
-  padding: 80px 0;
+  grid-template-columns: 180px 1fr;
+  gap: 64px;
+  padding: 78px 0 84px;
   border-top: 1px solid var(--line);
+}
+
+.section-label {
+  display: flex;
+  align-items: baseline;
+  gap: 11px;
+}
+
+.section-label span {
+  color: #9ba6b5;
+  font-size: 10px;
+  letter-spacing: 0.5px;
 }
 
 .section-content {
-  max-width: 680px;
+  max-width: 770px;
 }
 
 .section-content > p {
-  max-width: 590px;
+  max-width: 620px;
+  margin: 0;
   color: var(--muted);
-  font-size: 20px;
+  font-size: 17px;
+  line-height: 1.8;
 }
 
 .skill-list {
-  /* This is a plain list so languages and tools stay easy to edit. */
-  color: var(--ink);
-  font-family: var(--sans);
-  font-size: 16px;
-  padding-left: 20px;
-  margin-top: 30px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin: 30px 0 0;
+  padding: 0;
+  list-style: none;
 }
 
 .skill-list li {
-  color: inherit;
-  font-family: inherit;
+  padding: 7px 12px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--surface);
+  color: #46546a;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .project-list {
-  /* Adds a line above the first project. */
-  border-top: 1px solid var(--line);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 34px;
 }
 
 .project {
-  /* Each project row lines up its number, tag, title, and description. */
-  display: grid;
-  grid-template-columns: 45px 110px 1fr 1fr 30px;
+  position: relative;
+  min-height: 190px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: #fff;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.project:hover {
+  transform: translateY(-3px);
+  border-color: #c5d0de;
+  box-shadow: 0 12px 30px rgb(23 36 59 / 7%);
+}
+
+.project-meta {
+  display: flex;
   align-items: center;
-  gap: 25px;
-  padding: 25px 0;
-  border-bottom: 1px solid var(--line);
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 22px;
 }
 
-.project-number {
-  margin: 0;
-  color: var(--accent);
-  font-family: var(--serif);
-  font-size: 20px;
-}
-
-.project h3 {
-  margin: 4px 0 5px;
-  font-size: 28px;
-}
-
-.project-description {
-  margin: 0;
-  color: var(--muted);
-}
-
+.project-number,
 .project-tag {
   margin: 0;
 }
 
+.project-number {
+  color: #9ba6b5;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.project-tag {
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+
+.project h3 {
+  margin-bottom: 8px;
+  font-size: 21px;
+  letter-spacing: -0.025em;
+}
+
+.project-description {
+  max-width: 90%;
+  margin: 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .project-arrow {
-  font-size: 22px;
+  position: absolute;
+  right: 20px;
+  bottom: 18px;
+  color: var(--accent);
+  font-size: 18px;
 }
 
 .footer {
-  /* The footer has contact information, social links, and a small note. */
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: end;
-  gap: 30px;
-  padding: 55px 0 35px;
+  gap: 28px;
+  padding: 42px 0 32px;
   border-top: 1px solid var(--line);
 }
 
+.footer .eyebrow {
+  margin: 0 0 7px;
+  color: var(--muted);
+}
+
 .footer-email {
-  font-family: var(--serif);
-  font-size: 24px;
+  color: var(--ink);
+  font-size: 19px;
+  font-weight: 650;
+  letter-spacing: -0.4px;
   text-decoration: none;
+}
+
+.footer-email:hover {
+  color: var(--accent);
 }
 
 .footer-links {
   display: flex;
-  gap: 18px;
-  font-size: 14px;
+  gap: 20px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .footer-note {
   margin: 0;
-  color: var(--muted);
-  font-size: 12px;
+  color: #8994a3;
+  font-size: 11px;
   text-align: right;
 }
 
-@media (max-width: 700px) {
-  /* These rules make the page easier to read on phones. */
+@media (max-width: 760px) {
   .site-shell {
-    padding: 0 22px;
+    padding: 0 24px;
+  }
+
+  .site-header {
+    min-height: 76px;
+  }
+
+  .main-nav {
+    gap: 18px;
+    font-size: 12px;
+  }
+
+  .hero {
+    min-height: 0;
+    grid-template-columns: 1fr 230px;
+    gap: 28px;
+    padding: 86px 0 72px;
+  }
+
+  .profile-picture {
+    width: 220px;
+    height: 220px;
+  }
+
+  .section {
+    grid-template-columns: 140px 1fr;
+    gap: 30px;
+    padding: 62px 0;
+  }
+
+  .footer {
+    grid-template-columns: 1fr auto;
+  }
+
+  .footer-note {
+    grid-column: 1 / -1;
+    text-align: left;
+  }
+}
+
+@media (max-width: 560px) {
+  .site-shell {
+    padding: 0 20px;
+  }
+
+  .brand {
+    gap: 9px;
+    font-size: 12px;
+  }
+
+  .brand-mark {
+    width: 32px;
+    height: 32px;
+  }
+
+  .main-nav {
+    gap: 13px;
+    font-size: 11px;
   }
 
   .hero {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    justify-content: center;
-    min-height: auto;
-    gap: 48px;
-    padding: 90px 0;
+    gap: 44px;
+    padding: 72px 0 62px;
   }
 
   h1 {
-    font-size: 64px;
+    font-size: clamp(54px, 15vw, 72px);
+  }
+
+  .intro {
+    font-size: 17px;
   }
 
   .profile {
-    align-self: flex-end;
+    align-self: center;
   }
 
   .profile-picture {
-    /* Use a smaller circle on small screens. */
-    width: 245px;
-    height: 245px;
+    width: min(72vw, 260px);
+    height: min(72vw, 260px);
   }
 
   .section {
     display: block;
-    padding: 55px 0;
+    padding: 52px 0;
   }
 
   .section-label {
-    margin-bottom: 32px;
+    margin-bottom: 28px;
+  }
+
+  h2 {
+    font-size: 38px;
+  }
+
+  .section-content > p {
+    font-size: 15px;
+  }
+
+  .project-list {
+    grid-template-columns: 1fr;
+    margin-top: 26px;
+  }
+
+  .project {
+    min-height: 175px;
   }
 
   .footer {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 26px;
+    gap: 22px;
+    padding: 34px 0 28px;
+  }
+
+  .footer-email {
+    font-size: 17px;
   }
 
   .footer-note {
     text-align: left;
   }
+}
 
-  .project {
-    /* Projects use fewer columns on a narrow screen. */
-    grid-template-columns: 35px 1fr 25px;
-    gap: 12px;
-  }
-
-  .project-tag,
-  .project-description {
-    grid-column: 2;
-  }
-
-  .project h3 {
-    grid-column: 2;
-    grid-row: 2;
-  }
-
-  .project-arrow {
-    grid-column: 3;
-    grid-row: 1 / 4;
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
   }
 }
